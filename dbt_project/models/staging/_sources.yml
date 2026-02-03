@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw_source
+    database: source_database
+    schema: source_schema
+    tables:
+      - name: im_global_collect_rate
+        description: "Raw global collection rate data containing order information"
+        columns:
+          - name: createDate
+            description: "Date the order was created"
+          - name: clientName
+            description: "Name of the client (e.g., Client_A, Client_B)"
+          - name: businessType
+            description: "Type of business (e.g., W2D, D2D)"
+          - name: waybillNo
+            description: "Unique identifier for the order/waybill"
+      - name: im_arrival_scan
+        description: "Scan events at arrival stations (CDC)"
+        columns:
+          - name: scanDate
+            description: "Timestamp of the scan"
+          - name: scanStation
+            description: "Station where scan occurred"
+          - name: waybillNo
+            description: "Waybill ID"
+          - name: clientName
+            description: "Client Name associated with scan"

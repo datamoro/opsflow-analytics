@@ -1,0 +1,25 @@
+
+version: 2
+
+models:
+  - name: int_orders_daily_metric
+    columns:
+      - name: client_type
+        tests:
+          - not_null
+      - name: business_type
+        tests:
+          - not_null
+
+  - name: int_operational_ratios
+    columns:
+      - name: daily_ratio
+        description: "Percentage of orders picked up on this day relative to total for the cohort"
+        tests:
+          - not_null
+
+  - name: int_cdc_ratios
+    columns:
+      - name: production_ratio
+        tests:
+          - not_null

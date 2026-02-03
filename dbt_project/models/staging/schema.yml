@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: stg_im_global_collect_rate
+    description: "Staging table for global collect rate orders"
+    columns:
+      - name: waybill_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: created_date
+        tests:
+          - not_null
+      - name: client_normalized
+        tests:
+          - accepted_values:
+              values: ['Client_A', 'Client_B', 'Client_C', 'Regional_Sales']
+              quote: true
+
+  - name: stg_im_arrival_scan
+    description: "Staging table for CDC arrival scans"
+    columns:
+      - name: waybill_id
+        tests:
+          - not_null
+      - name: scan_at
+        tests:
+          - not_null
